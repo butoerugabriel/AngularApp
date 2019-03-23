@@ -1,0 +1,28 @@
+<div class="container">
+  <mat-card class="matcard">
+    <mat-card-header>
+      <mat-card-title>Login</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image src="https://svgshare.com/i/BQV.svg" class="illustration">
+    <ng-template #notLogged>
+      <mat-card-content #notLogged>
+        <button mat-raised-button color="primary" (click)="auth.googleSignin()">
+          Google Login
+        </button>
+      </mat-card-content>
+    </ng-template>
+    <mat-card-content
+      *ngIf="(auth.user | async) as user; else notLogged"
+      #loggedIn
+    >
+
+      <h3>Hai già eseguito il login</h3>
+      <button mat-raised-button color="secondary" routerLink="profile">
+        Profilo
+      </button>
+      <button mat-raised-button color="primary" (click)="auth.signOut()">
+        Logout
+      </button>
+    </mat-card-content>
+  </mat-card>
+</div>

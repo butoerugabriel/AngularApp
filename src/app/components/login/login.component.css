@@ -1,0 +1,22 @@
+.matcard, elevetionz8{
+    max-width: 300px;
+
+}
+.field{
+    width: 100%;
+}
+.container{
+    display: flex; 
+    justify-content: center;    
+}
+
+.mat-raised-button{
+    width: 100%;
+    margin: 2px;
+}
+.illustration{
+    margin-left: auto;
+	margin-right: auto;
+    display: block;
+    width: 80%;
+}

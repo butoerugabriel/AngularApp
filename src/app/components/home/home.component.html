@@ -1,0 +1,42 @@
+
+<!--<h2>Domanda specifica</h2>
+<h3>Domanda: {{(Question | async)?.text}}</h3>
+<h3>Autore: {{(Question | async)?.user}}</h3>-->
+<!--<h3>Howdy, {{ ProfileComponent.user.displayName }}</h3>-->
+<!--<ul *ngFor="let question of questions | async">
+  <li (click)="getQuestion(question.id)">
+    <strong>{{question.data.user}} (<a href='#' (click)="deleteQuestion(question.id)">Delete</a>)</strong>
+    <br>
+    {{question.data.text}}
+  </li>
+</ul>-->
+
+<mat-tab-group>
+  <mat-tab label="Fai una domanda">
+   <img src="https://svgshare.com/i/BQg.svg" class="illustration">
+     <mat-form-field class="fullWidth">
+    <textarea matInput [(ngModel)]="questiontext" name="question" placeholder="Domanda"></textarea>
+  </mat-form-field>
+
+<button mat-raised-button color="primary" class="addButton" value="Aggiungi domanda" (click)="addQuestion()">Aggiungi domanda</button>
+
+<!--<input type="submit" value="Aggiungi domanda" (click)="addQuestion()">-->
+  </mat-tab>
+  <mat-tab label="Elenco delle domande">
+
+  <div class="tableContainer">
+    <mat-list>
+  <mat-list-item *ngFor="let question of questions | async">
+    <h3 mat-line>{{question.data.votes}}</h3>
+    <mat-icon mat-list-icon>question_answer</mat-icon>
+    <h4 mat-line>{{question.data.text}}</h4>
+    <p mat-line> {{question.data.user}} </p>
+    <button mat-icon-button color="warn" (click)="deleteQuestion(question.id)">
+      <mat-icon aria-label="Delete">delete</mat-icon>
+    </button>
+  </mat-list-item>
+</mat-list>
+</div>
+
+  </mat-tab>
+</mat-tab-group>
